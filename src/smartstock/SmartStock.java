@@ -21,12 +21,12 @@ public class SmartStock {
 
        InventarioLineal inventario = new InventarioLineal();
 
-       inventario.agregarProducto(new Producto(1, "Arroz", 4500, 100));
-       inventario.agregarProducto(new Producto(2, "Frijoles Diana", 3800, 50));
-       inventario.agregarProducto(new Producto(3, "Leche Aplina", 5400, 30));
-       inventario.agregarProducto(new Producto(4, "Aceite de Girasol", 12000, 20));
-       inventario.agregarProducto(new Producto(5, "Azucar Rio Paila", 3000, 80));
-       inventario.agregarProducto(new Producto(6, "Sal Refisal", 1500, 60));
+       inventario.agregarProducto(new Producto("Arroz Diana", 4500, 100));
+       inventario.agregarProducto(new Producto("Frijoles Diana", 3800, 50));
+       inventario.agregarProducto(new Producto("Leche Aplina", 5400, 30));
+       inventario.agregarProducto(new Producto("Aceite de Girasol", 12000, 20));
+       inventario.agregarProducto(new Producto("Azucar Rio Paila", 3000, 80));
+       inventario.agregarProducto(new Producto("Sal Refisal", 1500, 60));
 
        inventario.mostrarProductos();
        
