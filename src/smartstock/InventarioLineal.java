@@ -28,7 +28,8 @@ public class InventarioLineal {
         if(producto == null){
             System.out.println("Error, no se puede agregar un producto nulo");
             return ;
-        }else if (estaLleno()){
+        }
+         if (estaLleno()){
             System.out.println("El inventario esta lleno, no se pueden agregar mas productos.");
             return;
         }
@@ -41,7 +42,7 @@ public class InventarioLineal {
             System.out.println("El inventario esta lleno, no se puede agregar mas productos.");
         } 
         
-        System.out.println("El producto Agregado correctamente.");
+        
     }
     //Para mostrar los productos, 
     // y con formato tipo hoja de exel para identificar mejor. :v
