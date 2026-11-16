@@ -14,6 +14,11 @@ public class InventarioSucursales {
 
     //Metodo que ya tenias: registra stock de un producto en una bodega
     public void registrarProductoSucursal(int idProducto, int idBodega, int cantidad) {
+
+        if (cantidad < 0) {// Validación de cantidad negativa
+            System.out.println("Error: La cantidad no puede ser negativa.");
+            return;
+        }
         int fila = idProducto - 1; // Ajuste para índice de arreglo
         int columna = idBodega;
 
@@ -44,6 +49,13 @@ public class InventarioSucursales {
 
     //Cambiar la cantidad de stock de un producto en una bodega
     public void actualizarExistencias(int idProducto, int idBodega, int nuevaCantidad) {
+        
+        if(nuevaCantidad < 0){
+    System.out.println(
+        "La cantidad no puede ser negativa."
+    );
+    return;
+}
         int fila = idProducto - 1;
         int columna = idBodega;
 

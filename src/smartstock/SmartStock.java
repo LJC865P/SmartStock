@@ -123,11 +123,21 @@ public class SmartStock {
         */
 
         // ----------- Ordenamiento por Seleccion -----------
+        /* 
         System.out.println("\nANTES DE ORDENAR POR SELECCION: \n");
         inventario.mostrarProductos();
         inventario.ordenarSeleccionPorNombre();
         System.out.println("\nDESPUÉS DE ORDENAR POR SELECCION:");
         inventario.mostrarProductos();
+
+        */
+
+        // ============ MODULO 3: INVENTARIO POR SUCURSALES y General ============
+
+        InventarioGeneral general = new InventarioGeneral();
+
+        general.registrarDatos(0,0,new Producto("Arroz",4500,20));
+        general.recorrerEstructura();
     }
 
 }
