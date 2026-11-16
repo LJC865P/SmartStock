@@ -23,8 +23,8 @@ public class ListaProductoDoble {
             cabeza = nuevo;
             cola = nuevo;
         } else {
-            nuevo.siguiente = cabeza;
-            cabeza.anterior = nuevo;
+            nuevo.setSiguiente(cabeza);
+            cabeza.setAnterior(nuevo);
             cabeza = nuevo;
         }
         tamano++;
@@ -42,8 +42,8 @@ public class ListaProductoDoble {
             cabeza = nuevo;
             cola = nuevo;
         } else {
-            nuevo.anterior = cola;
-            cola.siguiente = nuevo;
+            nuevo.setAnterior(cola);
+            cola.setSiguiente(nuevo);
             cola = nuevo;
         }
         tamano++;
@@ -58,8 +58,8 @@ public class ListaProductoDoble {
         encabezado();
         NodoDoble actual = cabeza;
         while (actual != null) {
-            fila(actual.dato);
-            actual = actual.siguiente;
+            fila(actual.getDato());
+            actual = actual.getSiguiente();
         }
         pie();
     }
@@ -73,8 +73,8 @@ public class ListaProductoDoble {
         encabezado();
         NodoDoble actual = cola;
         while (actual != null) {
-            fila(actual.dato);
-            actual = actual.anterior;
+            fila(actual.getDato());
+            actual = actual.getAnterior();
         }
         pie();
     }
@@ -91,8 +91,8 @@ public class ListaProductoDoble {
         }
 
         NodoDoble actual = cabeza;
-        while (actual != null && actual.dato.getId() != id) {
-            actual = actual.siguiente;
+        while (actual != null && actual.getDato().getId() != id) {
+            actual = actual.getSiguiente();
         }
 
         if (actual == null) {
@@ -100,16 +100,16 @@ public class ListaProductoDoble {
             return false;
         }
 
-        if (actual.anterior != null) {
-            actual.anterior.siguiente = actual.siguiente;
+        if (actual.getAnterior() != null) {
+            actual.getAnterior().setSiguiente(actual.getSiguiente());
         } else {
-            cabeza = actual.siguiente;
+            cabeza = actual.getSiguiente();
         }
 
-        if (actual.siguiente != null) {
-            actual.siguiente.anterior = actual.anterior;
+        if (actual.getSiguiente() != null) {
+            actual.getSiguiente().setAnterior(actual.getAnterior());
         } else {
-            cola = actual.anterior;
+            cola = actual.getAnterior();
         }
 
         tamano--;

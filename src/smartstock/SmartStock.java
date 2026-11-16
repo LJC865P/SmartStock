@@ -1,4 +1,3 @@
-
 package smartstock;
 
 /**
@@ -15,11 +14,10 @@ public class SmartStock {
           producto.
           arroz.mostrarInformacion();
           System.out.println("--------------------");//Fin de prueba de clase producto.
-          */
-         
-         System.out.println();
-         
-         /* 
+         */
+        System.out.println();
+
+        /* 
          InventarioLineal inventario = new InventarioLineal();
          
          inventario.agregarProducto(new Producto("Frijoles Diana", 3800, 50));
@@ -35,9 +33,9 @@ public class SmartStock {
          inventario.agregarProducto(new Producto("Pan Hamburguesa", 13800, 5));
 
         inventario.mostrarProductos();
-        */
+         */
 
-        /*
+ /*
           // Pueba de Actualizacion de Inventario
           System.out.println("\nANTES DE ACTUALIZAR:");
           inventario.mostrarProductos();
@@ -52,7 +50,7 @@ public class SmartStock {
           inventario.mostrarProductos();
          */
 
-        /*
+ /*
           // Prueba de Eliminacion de Inventario
           System.out.println("\nANTES DE ELIMINAR:");
           inventario.mostrarProductos();
@@ -63,7 +61,6 @@ public class SmartStock {
           
           inventario.mostrarProductos();
          */
-
         // ---------- MODULO 2: BUSQUEDA ----------
 
         /*
@@ -88,9 +85,7 @@ public class SmartStock {
           System.out.println("Producto no encontrado.");
           }
          */
-
         // ---------- MODULO 2: ORDENAMIENTO ----------
-
         // Pueba de ordenamiento burbuja por nombre
         /* 
         System.out.println("\nANTES DE ORDENAR POR NOMBRE: \n");
@@ -104,8 +99,7 @@ public class SmartStock {
         inventario.ordenarBurbuja();
         System.out.println("\nDESPUÉS DE ORDENAR POR ID:");
         inventario.mostrarProductos();
-        */
-
+         */
         // ----------- Modulo 2 Busqueda Binaria -----------
 
         /* 
@@ -117,8 +111,7 @@ public class SmartStock {
         } else {
             System.out.println("Producto no encontrado.");
         }
-        */
-
+         */
         // ----------- Ordenamiento por Insercion -----------
         /* 
         System.out.println("\nANTES DE ORDENAR POR INSERCION: \n");
@@ -127,8 +120,7 @@ public class SmartStock {
         inventario.ordenarPorInsercion();
         System.out.println("\nDESPUÉS DE ORDENAR POR INSERCION:");
         inventario.mostrarProductos();
-        */
-
+         */
         // ----------- Ordenamiento por Seleccion -----------
         /* 
         System.out.println("\nANTES DE ORDENAR POR SELECCION: \n");
@@ -137,44 +129,40 @@ public class SmartStock {
         System.out.println("\nDESPUÉS DE ORDENAR POR SELECCION:");
         inventario.mostrarProductos();
 
-        */
-
-        // ============ MODULO 3: INVENTARIO POR SUCURSALES y General ============
+         */
+        // ============ MODULO 4: INVENTARIO POR SUCURSALES y General ============
 
         /*
         InventarioGeneral general = new InventarioGeneral();
 
         general.registrarDatos(0,0,new Producto("Arroz",4500,20));
         general.recorrerEstructura();
-        */
-
-
+         */
         // =====================================================
         // INVENTARIO PRINCIPAL
         // =====================================================
-
         InventarioLineal inventario = new InventarioLineal();
 
-        Producto p1 =
-                new Producto(
+        Producto p1
+                = new Producto(
                         "Arroz Diana",
                         4500,
                         100);
 
-        Producto p2 =
-                new Producto(
+        Producto p2
+                = new Producto(
                         "Frijoles Diana",
                         3800,
                         50);
 
-        Producto p3 =
-                new Producto(
+        Producto p3
+                = new Producto(
                         "Leche Alpina",
                         5400,
                         30);
 
-        Producto p4 =
-                new Producto(
+        Producto p4
+                = new Producto(
                         "Sal Refisal",
                         1500,
                         60);
@@ -192,11 +180,10 @@ public class SmartStock {
         // =====================================================
         // LISTA SIMPLE
         // =====================================================
-
         System.out.println("\n===== LISTA SIMPLE =====");
 
-        ListaProductos lista =
-                new ListaProductos();
+        ListaProductos lista
+                = new ListaProductos();
 
         lista.insertarFinal(p1);
         lista.insertarFinal(p2);
@@ -207,8 +194,8 @@ public class SmartStock {
 
         System.out.println("\nBuscar ID 3");
 
-        Producto encontrado =
-                lista.buscarProducto(3);
+        Producto encontrado
+                = lista.buscarProducto(3);
 
         if (encontrado != null) {
 
@@ -230,11 +217,10 @@ public class SmartStock {
         // =====================================================
         // LISTA DOBLE
         // =====================================================
-
         System.out.println("\n===== LISTA DOBLE =====");
 
-        ListaProductoDoble doble =
-                new ListaProductoDoble();
+        ListaProductoDoble doble
+                = new ListaProductoDoble();
 
         doble.insertarFinal(p1);
         doble.insertarFinal(p2);
@@ -260,7 +246,58 @@ public class SmartStock {
                 "\nLista doble actual:");
 
         doble.recorrerAdelante();
+
+        // ============ Validacion Lista circular ===============
+        /*
+        System.out.println("\n========= Lista Circular ==========");
+
+            ListaProductoCircular circular = new ListaProductoCircular();
+
+            circular.insertarNodo(p3);
+            circular.insertarNodo(p2);
+            circular.insertarNodo(p1);
+            circular.insertarNodo(p4);
+
+            circular.recorrerCircular();
+
+            System.out.println("\nAntes de Ordenar");
+            circular.recorrerCircular();
+
+            //para ordenar lista
+            circular.ordenarPorLista();
+            System.out.println("\nDespues de Ordenar");
+            circular.recorrerCircular();
+         */
+        System.out.println(
+                "\n===== LISTA CIRCULAR DOBLE =====");
+
+        ListaProductosCircularDoble circularDoble
+                = new ListaProductosCircularDoble();
+
+        circularDoble.insertarNodo(p4);
+        circularDoble.insertarNodo(p1);
+        circularDoble.insertarNodo(p3);
+        circularDoble.insertarNodo(p2);
+        
+        System.out.println("\nRecorrido adelante");
+        
+        
+        circularDoble.recorrerAdelante();
+        
+        System.out.println();
+        System.out.println("\nRecorrer Atras");
+        
+        circularDoble.recorrerAtras();
+        
+        System.out.println("\nANTES DE ORDENAR");
+
+    circularDoble.recorrerAdelante();
+    
+    //para ordenar 
+    circularDoble.ordenarLista();
+    System.out.println("\nDESPUÉS DE ORDENAR");
+
+circularDoble.recorrerAdelante();
     }
 
-    
 }

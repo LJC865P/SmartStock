@@ -18,7 +18,7 @@ public class ListaProductos {
         
 
         Nodo nuevo = new Nodo(producto);
-        nuevo.siguiente = cabeza;
+        nuevo.setSiguiente(cabeza);
         cabeza = nuevo;
         tamano++;
     }
@@ -35,10 +35,10 @@ public class ListaProductos {
             cabeza = nuevo;
         } else {
             Nodo actual = cabeza;
-            while (actual.siguiente != null) {
-                actual = actual.siguiente;
+            while (actual.getSiguiente() != null) {
+                actual = actual.getSiguiente();
             }
-            actual.siguiente = nuevo;
+            actual.setSiguiente(nuevo);
         }
         tamano++;
     }
@@ -56,23 +56,23 @@ public class ListaProductos {
             return false;
         }
 
-        if (cabeza.dato.getId() == id) {
-            cabeza = cabeza.siguiente;
+        if (cabeza.getDato().getId() == id) {
+            cabeza = cabeza.getSiguiente();
             tamano--;
             return true;
         }
 
         Nodo actual = cabeza;
-        while (actual.siguiente != null && actual.siguiente.dato.getId() != id) {
-            actual = actual.siguiente;
+        while (actual.getSiguiente() != null && actual.getSiguiente().getDato().getId() != id) {
+            actual = actual.getSiguiente();
         }
 
-        if (actual.siguiente == null) {
+        if (actual.getSiguiente() == null) {
             System.out.println("Producto no encontrado, no se elimino nada.");
             return false;
         }
 
-        actual.siguiente = actual.siguiente.siguiente;
+        actual.setSiguiente(actual.getSiguiente().getSiguiente());
         tamano--;
         return true;
     }
@@ -90,11 +90,11 @@ public class ListaProductos {
         Nodo actual = cabeza;
         while (actual != null) {
             System.out.printf("| %-4d | %-24s | %-8.2f | %-6d |%n",
-                    actual.dato.getId(),
-                    actual.dato.getNombre(),
-                    actual.dato.getPrecio(),
-                    actual.dato.getStock());
-            actual = actual.siguiente;
+                    actual.getDato().getId(),
+                    actual.getDato().getNombre(),
+                    actual.getDato().getPrecio(),
+                    actual.getDato().getStock());
+            actual = actual.getSiguiente();
         }
 
         System.out.println("+------+--------------------------+----------+--------+");
@@ -108,10 +108,10 @@ public class ListaProductos {
 
         Nodo actual = cabeza;
         while (actual != null) {
-            if (actual.dato.getId() == id) {
-                return actual.dato;
+            if (actual.getDato().getId() == id) {
+                return actual.getDato();
             }
-            actual = actual.siguiente;
+            actual = actual.getSiguiente();
         }
         return null;
     }
