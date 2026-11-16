@@ -27,9 +27,9 @@ public class InventarioLineal {
         //Validacion de los casos limintes 
         if(producto == null){
             System.out.println("Error, no se puede agregar un producto nulo");
-            return ;
+            return;
         }
-         if (estaLleno()){
+        if (estaLleno()){
             System.out.println("El inventario esta lleno, no se pueden agregar mas productos.");
             return;
         }
