@@ -15,20 +15,27 @@ public class SmartStock {
           producto.
           arroz.mostrarInformacion();
           System.out.println("--------------------");//Fin de prueba de clase producto.
-         */
-
-        System.out.println();
-
-        InventarioLineal inventario = new InventarioLineal();
-
-        inventario.agregarProducto(new Producto("Frijoles Diana", 3800, 50));
-        inventario.agregarProducto(new Producto("Arroz Diana", 4500, 100));
-        inventario.agregarProducto(new Producto("Aceite de Girasol", 12000, 20));
-        inventario.agregarProducto(new Producto("Leche Aplina", 5400, 30));
-        inventario.agregarProducto(new Producto("Sal Refisal", 1500, 60));
-        inventario.agregarProducto(new Producto("Azucar Rio Paila", 3000, 80));
+          */
+         
+         System.out.println();
+         
+         /* 
+         InventarioLineal inventario = new InventarioLineal();
+         
+         inventario.agregarProducto(new Producto("Frijoles Diana", 3800, 50));
+         inventario.agregarProducto(new Producto("Arroz Diana", 4500, 100));
+         inventario.agregarProducto(new Producto("Aceite de Girasol", 12000, 20));
+         inventario.agregarProducto(new Producto("Leche Aplina", 5400, 30));
+         inventario.agregarProducto(new Producto("Sal Refisal", 1500, 60));
+         inventario.agregarProducto(new Producto("Azucar Rio Paila", 3000, 80));
+         inventario.agregarProducto(new Producto("Salchicha Zenu", 10800, 5));
+         inventario.agregarProducto(new Producto("Jamon Zenu", 19800, 24));
+         inventario.agregarProducto(new Producto("Salchicha Rica", 1800, 52));
+         inventario.agregarProducto(new Producto("Col cafe", 18000, 15));
+         inventario.agregarProducto(new Producto("Pan Hamburguesa", 13800, 5));
 
         inventario.mostrarProductos();
+        */
 
         /*
           // Pueba de Actualizacion de Inventario
@@ -134,10 +141,126 @@ public class SmartStock {
 
         // ============ MODULO 3: INVENTARIO POR SUCURSALES y General ============
 
+        /*
         InventarioGeneral general = new InventarioGeneral();
 
         general.registrarDatos(0,0,new Producto("Arroz",4500,20));
         general.recorrerEstructura();
+        */
+
+
+        // =====================================================
+        // INVENTARIO PRINCIPAL
+        // =====================================================
+
+        InventarioLineal inventario = new InventarioLineal();
+
+        Producto p1 =
+                new Producto(
+                        "Arroz Diana",
+                        4500,
+                        100);
+
+        Producto p2 =
+                new Producto(
+                        "Frijoles Diana",
+                        3800,
+                        50);
+
+        Producto p3 =
+                new Producto(
+                        "Leche Alpina",
+                        5400,
+                        30);
+
+        Producto p4 =
+                new Producto(
+                        "Sal Refisal",
+                        1500,
+                        60);
+
+        // Se asignan IDs automáticos
+        inventario.agregarProducto(p1);
+        inventario.agregarProducto(p2);
+        inventario.agregarProducto(p3);
+        inventario.agregarProducto(p4);
+
+        System.out.println("\n===== INVENTARIO PRINCIPAL =====");
+
+        inventario.mostrarProductos();
+
+        // =====================================================
+        // LISTA SIMPLE
+        // =====================================================
+
+        System.out.println("\n===== LISTA SIMPLE =====");
+
+        ListaProductos lista =
+                new ListaProductos();
+
+        lista.insertarFinal(p1);
+        lista.insertarFinal(p2);
+        lista.insertarFinal(p3);
+        lista.insertarInicio(p4);
+
+        lista.recorrerLista();
+
+        System.out.println("\nBuscar ID 3");
+
+        Producto encontrado =
+                lista.buscarProducto(3);
+
+        if (encontrado != null) {
+
+            encontrado.mostrarInformacion();
+
+        } else {
+
+            System.out.println(
+                    "Producto no encontrado.");
+
+        }
+
+        System.out.println("\nEliminar ID 2");
+
+        lista.eliminarProducto(2);
+
+        lista.recorrerLista();
+
+        // =====================================================
+        // LISTA DOBLE
+        // =====================================================
+
+        System.out.println("\n===== LISTA DOBLE =====");
+
+        ListaProductoDoble doble =
+                new ListaProductoDoble();
+
+        doble.insertarFinal(p1);
+        doble.insertarFinal(p2);
+        doble.insertarFinal(p3);
+        doble.insertarInicio(p4);
+
+        System.out.println("\nRecorrido hacia adelante:");
+
+        doble.recorrerAdelante();
+
+        System.out.println("\nRecorrido hacia atrás:");
+
+        doble.recorrerAtras();
+
+        System.out.println(
+                "\nEliminar ID 4 y ID 3");
+
+        doble.eliminarProducto(4);
+
+        doble.eliminarProducto(3);
+
+        System.out.println(
+                "\nLista doble actual:");
+
+        doble.recorrerAdelante();
     }
 
+    
 }
