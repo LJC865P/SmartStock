@@ -24,10 +24,11 @@ public class InventarioLineal {
         siguienteId++; // para el próximo producto.
 
         // Validacion de los casos limintes
-        if (producto == null) {
+        if (productos == null) {
             System.out.println("Error, no se puede agregar un producto nulo");
             return;
         }
+
         if (estaLleno()) {
             System.out.println("El inventario esta lleno, no se pueden agregar mas productos.");
             return;
