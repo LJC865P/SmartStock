@@ -1,360 +1,347 @@
 package smartstock;
 
+import java.util.Scanner;
+
 /**
+ * SmartStock — Sistema de Gestión de Inventario para Tiendas y Supermercados.
  *
- * @author josep LJCPEREZ865 Y LJC865
+ * Proyecto Integrador de Estructuras de Datos.
+ * Integrantes: Jose Perez · Nicolas Correa · Andres Lugo · Juan Sebastian Diaz Sanchez
+ * Docente: Nathaly Diaz
+ *
+ * Clase principal que integra los 6 módulos mediante un menú interactivo.
  */
 public class SmartStock {
 
     public static void main(String[] args) {
-        // Solo el llamado de las clases y todo lo principal
+        Scanner scanner = new Scanner(System.in);
 
-        /*
-          Producto arroz = new Producto(1, "Arroz", 4500, 100); //Prueba de la clase
-          producto.
-          arroz.mostrarInformacion();
-          System.out.println("--------------------");//Fin de prueba de clase producto.
-         */
-        System.out.println();
+        // =====================================================================
+        // INICIALIZACIÓN DE ESTRUCTURAS DE DATOS (Módulos 1 al 6)
+        // =====================================================================
 
-        /* 
-         InventarioLineal inventario = new InventarioLineal();
-         
-         inventario.agregarProducto(new Producto("Frijoles Diana", 3800, 50));
-         inventario.agregarProducto(new Producto("Arroz Diana", 4500, 100));
-         inventario.agregarProducto(new Producto("Aceite de Girasol", 12000, 20));
-         inventario.agregarProducto(new Producto("Leche Aplina", 5400, 30));
-         inventario.agregarProducto(new Producto("Sal Refisal", 1500, 60));
-         inventario.agregarProducto(new Producto("Azucar Rio Paila", 3000, 80));
-         inventario.agregarProducto(new Producto("Salchicha Zenu", 10800, 5));
-         inventario.agregarProducto(new Producto("Jamon Zenu", 19800, 24));
-         inventario.agregarProducto(new Producto("Salchicha Rica", 1800, 52));
-         inventario.agregarProducto(new Producto("Col cafe", 18000, 15));
-         inventario.agregarProducto(new Producto("Pan Hamburguesa", 13800, 5));
-
-        inventario.mostrarProductos();
-         */
-
- /*
-          // Pueba de Actualizacion de Inventario
-          System.out.println("\nANTES DE ACTUALIZAR:");
-          inventario.mostrarProductos();
-          
-          inventario.actualizarProducto(
-          2,
-          "Leche Entera",
-          4200,
-          25);
-          
-          System.out.println("\nDESPUÉS DE ACTUALIZAR:");
-          inventario.mostrarProductos();
-         */
-
- /*
-          // Prueba de Eliminacion de Inventario
-          System.out.println("\nANTES DE ELIMINAR:");
-          inventario.mostrarProductos();
-          
-          inventario.eliminarProducto(2);
-          
-          System.out.println("\nDESPUÉS DE ELIMINAR:");
-          
-          inventario.mostrarProductos();
-         */
-        // ---------- MODULO 2: BUSQUEDA ----------
-
-        /*
-          //Busqueda secuancial por id
-          System.out.println("\nBusqueda secuencial del codigo 4:");
-          Producto productoEncontrado = inventario.buscarSecuencial(4);
-          if (productoEncontrado != null) {
-          System.out.println("Producto encontrado:");
-          productoEncontrado.mostrarInformacion();
-          } else {
-          System.out.println("Producto no encontrado.");
-          }
-          
-          //Busqueda secuancial por Nombre
-          System.out.println("\nBusqueda secuencial del nombre 'Sal Refisal':");
-          Producto productoEncontradoPorNombre =
-          inventario.buscarSecuencialPorNombre("Sal Refisal");
-          if (productoEncontradoPorNombre != null) {
-          System.out.println("Producto encontrado:");
-          productoEncontradoPorNombre.mostrarInformacion();
-          } else {
-          System.out.println("Producto no encontrado.");
-          }
-         */
-        // ---------- MODULO 2: ORDENAMIENTO ----------
-        // Pueba de ordenamiento burbuja por nombre
-        /* 
-        System.out.println("\nANTES DE ORDENAR POR NOMBRE: \n");
-
-        inventario.ordenarBurbujaPorNombre();
-        System.out.println("\nDESPUÉS DE ORDENAR POR NOMBRE:");
-        inventario.mostrarProductos();
-
-        // Pueba de ordenamiento burbuja por id
-        System.out.println("\nANTES DE ORDENAR POR ID: \n");
-        inventario.ordenarBurbuja();
-        System.out.println("\nDESPUÉS DE ORDENAR POR ID:");
-        inventario.mostrarProductos();
-         */
-        // ----------- Modulo 2 Busqueda Binaria -----------
-
-        /* 
-        System.out.println("\nBusqueda binaria del codigo 4:");
-        Producto productoEncontrado = inventario.buscarBinaria(4);
-        if (productoEncontrado != null) {
-            System.out.println("Producto encontrado:");
-            productoEncontrado.mostrarInformacion();
-        } else {
-            System.out.println("Producto no encontrado.");
-        }
-         */
-        // ----------- Ordenamiento por Insercion -----------
-        /* 
-        System.out.println("\nANTES DE ORDENAR POR INSERCION: \n");
-        inventario.mostrarProductos();
-        System.out.println();
-        inventario.ordenarPorInsercion();
-        System.out.println("\nDESPUÉS DE ORDENAR POR INSERCION:");
-        inventario.mostrarProductos();
-         */
-        // ----------- Ordenamiento por Seleccion -----------
-        /* 
-        System.out.println("\nANTES DE ORDENAR POR SELECCION: \n");
-        inventario.mostrarProductos();
-        inventario.ordenarSeleccionPorNombre();
-        System.out.println("\nDESPUÉS DE ORDENAR POR SELECCION:");
-        inventario.mostrarProductos();
-
-         */
-        // ============ MODULO 4: INVENTARIO POR SUCURSALES y General ============
-
-        /*
-        InventarioGeneral general = new InventarioGeneral();
-
-        general.registrarDatos(0,0,new Producto("Arroz",4500,20));
-        general.recorrerEstructura();
-         */
-        // =====================================================
-        // INVENTARIO PRINCIPAL
-        // =====================================================
+        // Módulo 1 & 2: Arreglo lineal, búsquedas y ordenamientos
         InventarioLineal inventario = new InventarioLineal();
 
-        Producto p1
-                = new Producto(
-                        "Arroz Diana",
-                        4500,
-                        100);
+        // Módulo 3: Matrices 2D y 3D
+        InventarioSucursales invSucursales = new InventarioSucursales();
+        InventarioGeneral invGeneral = new InventarioGeneral();
 
-        Producto p2
-                = new Producto(
-                        "Frijoles Diana",
-                        3800,
-                        50);
+        // Módulo 4: Listas enlazadas simple y doble
+        ListaProductos listaSimple = new ListaProductos();
+        ListaProductoDoble listaDoble = new ListaProductoDoble();
 
-        Producto p3
-                = new Producto(
-                        "Leche Alpina",
-                        5400,
-                        30);
+        // Módulo 5: Listas circulares (carrusel de promociones)
+        ListaProductoCircular listaCircular = new ListaProductoCircular();
+        ListaProductosCircularDoble carruselPromociones = new ListaProductosCircularDoble();
 
-        Producto p4
-                = new Producto(
-                        "Sal Refisal",
-                        1500,
-                        60);
+        // Módulo 6: Operaciones del supermercado
+        PilaMovimientos pilaMovimientos = new PilaMovimientos();
+        ColaClientes colaClientes = new ColaClientes();
+        ColaPrioridadPedidos pedidosReposicion = new ColaPrioridadPedidos();
+        CadenaProductos cadenaUtil = new CadenaProductos();
 
-        // Se asignan IDs automáticos
+        // =====================================================================
+        // CARGA DE DATOS INICIALES (Para demostración rápida)
+        // =====================================================================
+        Producto p1 = new Producto("Arroz Diana", 4500, 100);
+        Producto p2 = new Producto("Frijoles Diana", 3800, 50);
+        Producto p3 = new Producto("Leche Alpina", 5400, 30);
+        Producto p4 = new Producto("Aceite de Girasol", 12000, 20);
+        Producto p5 = new Producto("Azucar Rio Paila", 3000, 80);
+        Producto p6 = new Producto("Sal Refisal", 1500, 60);
+
+        // Registro en Inventario Lineal (Módulo 1)
         inventario.agregarProducto(p1);
         inventario.agregarProducto(p2);
         inventario.agregarProducto(p3);
         inventario.agregarProducto(p4);
+        inventario.agregarProducto(p5);
+        inventario.agregarProducto(p6);
 
-        System.out.println("\n===== INVENTARIO PRINCIPAL =====");
+        // Registro en Listas Enlazadas (Módulo 4)
+        listaSimple.insertarFinal(p1);
+        listaSimple.insertarFinal(p2);
+        listaSimple.insertarFinal(p3);
+        listaSimple.insertarFinal(p4);
 
-        inventario.mostrarProductos();
+        listaDoble.insertarFinal(p1);
+        listaDoble.insertarFinal(p2);
+        listaDoble.insertarFinal(p3);
 
-        // =====================================================
-        // LISTA SIMPLE
-        // =====================================================
-        System.out.println("\n===== LISTA SIMPLE =====");
+        // Registro en Carrusel Circular de Promociones (Módulo 5)
+        carruselPromociones.insertarNodo(p1);
+        carruselPromociones.insertarNodo(p3);
+        carruselPromociones.insertarNodo(p4);
+        carruselPromociones.insertarNodo(p6);
 
-        ListaProductos lista
-                = new ListaProductos();
+        // Registro en Inventario de Sucursales 2D (Módulo 3)
+        // Bodega 0 = Norte, Bodega 1 = Centro, Bodega 2 = Sur
+        invSucursales.registrarProductoSucursal(1, 0, 40); // Arroz en Bodega 0
+        invSucursales.registrarProductoSucursal(1, 1, 35); // Arroz en Bodega 1
+        invSucursales.registrarProductoSucursal(1, 2, 25); // Arroz en Bodega 2
+        invSucursales.registrarProductoSucursal(2, 0, 20); // Frijoles en Bodega 0
+        invSucursales.registrarProductoSucursal(2, 1, 15); // Frijoles en Bodega 1
+        invSucursales.registrarProductoSucursal(2, 2, 15); // Frijoles en Bodega 2
 
-        lista.insertarFinal(p1);
-        lista.insertarFinal(p2);
-        lista.insertarFinal(p3);
-        lista.insertarInicio(p4);
+        // Registro en Inventario General 3D (Módulo 3)
+        invGeneral.registrarDatos(0, 0, p1); // Sucursal 0, Cat 0: Arroz
+        invGeneral.registrarDatos(0, 1, p3); // Sucursal 0, Cat 1: Leche
+        invGeneral.registrarDatos(1, 0, p2); // Sucursal 1, Cat 0: Frijoles
 
-        lista.recorrerLista();
+        // Precarga de Clientes en Cola (Módulo 6)
+        colaClientes.encolarCliente("Carlos Gomez");
+        colaClientes.encolarCliente("Maria Rodriguez");
+        colaClientes.encolarCliente("Juan Martinez");
 
-        System.out.println("\nBuscar ID 3");
+        // Precarga de Pedidos de Reposición con Prioridad (Módulo 6)
+        pedidosReposicion.insertarPedido(p4.getId(), p4.getNombre(), 25, 1); // 1 = Urgente
+        pedidosReposicion.insertarPedido(p3.getId(), p3.getNombre(), 40, 2); // 2 = Media
+        pedidosReposicion.insertarPedido(p1.getId(), p1.getNombre(), 80, 3); // 3 = Normal
 
-        Producto encontrado
-                = lista.buscarProducto(3);
+        // =====================================================================
+        // CICLO PRINCIPAL — MENÚ INTERACTIVO
+        // =====================================================================
+        int opcion = -1;
 
-        if (encontrado != null) {
+        System.out.println("==========================================================");
+        System.out.println("       S M A R T S T O C K   —   I N I C I A D O         ");
+        System.out.println(" Sistema de Inventario basado en Estructuras de Datos    ");
+        System.out.println("==========================================================");
 
-            encontrado.mostrarInformacion();
+        do {
+            System.out.println("\n----------------- MENÚ PRINCIPAL -----------------");
+            System.out.println(" 1. [M1/M2/M6] Buscar producto (Secuencial, Binaria, Texto)");
+            System.out.println(" 2. [M1/M4/M6] Registrar entrada de producto (Stock / Pila)");
+            System.out.println(" 3. [M1/M6]    Registrar venta (Atender cliente en caja)");
+            System.out.println(" 4. [M6]       Deshacer último movimiento (Pila LIFO)");
+            System.out.println(" 5. [M6]       Gestionar pedidos de reposición (Cola Prioridad)");
+            System.out.println(" 6. [M3]       Reportes por sucursales y bodegas (Matriz 2D / 3D)");
+            System.out.println(" 7. [M5]       Carrusel de promociones (Lista Circular Doble)");
+            System.out.println(" 8. [M1/M4]    Ver inventarios completos (Arreglo, Lista Simple, Doble)");
+            System.out.println(" 9. [M2]       Ordenar inventario (Burbuja, Inserción, Selección)");
+            System.out.println(" 0. Salir");
+            System.out.print("Seleccione una opción: ");
 
-        } else {
+            try {
+                String linea = scanner.nextLine();
+                opcion = Integer.parseInt(linea.trim());
+            } catch (NumberFormatException e) {
+                System.out.println(">> Error: Debe ingresar un número entero válido.");
+                continue;
+            }
 
-            System.out.println(
-                    "Producto no encontrado.");
+            switch (opcion) {
+                case 1:
+                    // Búsquedas
+                    System.out.println("\n--- 1. BÚSQUEDA DE PRODUCTOS ---");
+                    System.out.println("a. Búsqueda secuencial por ID");
+                    System.out.println("b. Búsqueda binaria por ID");
+                    System.out.println("c. Búsqueda por texto (CadenaProductos)");
+                    System.out.print("Elija método (a/b/c): ");
+                    String sub = scanner.nextLine().trim().toLowerCase();
 
-        }
+                    if (sub.equals("a")) {
+                        System.out.print("Ingrese ID a buscar: ");
+                        int id = Integer.parseInt(scanner.nextLine().trim());
+                        Producto prod = inventario.buscarSecuencial(id);
+                        if (prod != null) {
+                            System.out.println(">> Encontrado:");
+                            prod.mostrarInformacion();
+                        } else {
+                            System.out.println(">> Producto no encontrado.");
+                        }
+                    } else if (sub.equals("b")) {
+                        System.out.print("Ingrese ID a buscar: ");
+                        int id = Integer.parseInt(scanner.nextLine().trim());
+                        Producto prod = inventario.buscarBinaria(id);
+                        if (prod != null) {
+                            System.out.println(">> Encontrado con Búsqueda Binaria:");
+                            prod.mostrarInformacion();
+                        } else {
+                            System.out.println(">> Producto no encontrado.");
+                        }
+                    } else if (sub.equals("c")) {
+                        System.out.print("Ingrese palabra o fragmento a buscar: ");
+                        String texto = scanner.nextLine().trim();
+                        Producto[] prods = { p1, p2, p3, p4, p5, p6 };
+                        cadenaUtil.buscarTexto(texto, prods, prods.length);
+                    } else {
+                        System.out.println(">> Opción no válida.");
+                    }
+                    break;
 
-        System.out.println("\nEliminar ID 2");
+                case 2:
+                    // Registrar entrada
+                    System.out.println("\n--- 2. REGISTRAR ENTRADA DE PRODUCTO ---");
+                    System.out.print("Nombre del nuevo producto: ");
+                    String nom = scanner.nextLine().trim();
+                    System.out.print("Precio: ");
+                    double pre = Double.parseDouble(scanner.nextLine().trim());
+                    System.out.print("Cantidad inicial en stock: ");
+                    int cant = Integer.parseInt(scanner.nextLine().trim());
 
-        lista.eliminarProducto(2);
+                    Producto nuevo = new Producto(nom, pre, cant);
+                    inventario.agregarProducto(nuevo);
+                    listaSimple.insertarFinal(nuevo);
+                    pilaMovimientos.apilarMovimiento(nuevo.getId(), "ENTRADA", cant);
 
-        lista.recorrerLista();
+                    System.out.println(">> Producto registrado en inventario lineal, lista simple y apilado en historial.");
+                    break;
 
-        // =====================================================
-        // LISTA DOBLE
-        // =====================================================
-        System.out.println("\n===== LISTA DOBLE =====");
+                case 3:
+                    // Registrar venta con Cola de Clientes
+                    System.out.println("\n--- 3. REGISTRAR VENTA EN CAJA ---");
+                    if (colaClientes.estaVacia()) {
+                        System.out.print("No hay clientes en cola. Ingrese nombre del cliente: ");
+                        String clienteNombre = scanner.nextLine().trim();
+                        colaClientes.encolarCliente(clienteNombre);
+                    }
 
-        ListaProductoDoble doble
-                = new ListaProductoDoble();
+                    System.out.println("Siguiente cliente en fila:");
+                    Cliente cAtendido = colaClientes.desencolarCliente();
 
-        doble.insertarFinal(p1);
-        doble.insertarFinal(p2);
-        doble.insertarFinal(p3);
-        doble.insertarInicio(p4);
+                    inventario.mostrarProductos();
+                    System.out.print("Ingrese ID del producto a vender a " + cAtendido.getNombre() + ": ");
+                    int idVenta = Integer.parseInt(scanner.nextLine().trim());
+                    System.out.print("Cantidad a vender: ");
+                    int cantVenta = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println("\nRecorrido hacia adelante:");
+                    Producto pVenta = inventario.buscarSecuencial(idVenta);
+                    if (pVenta != null && pVenta.getStock() >= cantVenta) {
+                        pVenta.setStock(pVenta.getStock() - cantVenta);
+                        pilaMovimientos.apilarMovimiento(idVenta, "VENTA", cantVenta);
+                        System.out.println(">> Venta exitosa. Total: $" + (cantVenta * pVenta.getPrecio()));
+                        System.out.println(">> Nuevo stock de " + pVenta.getNombre() + ": " + pVenta.getStock());
+                    } else {
+                        System.out.println(">> Error: Stock insuficiente o producto no encontrado.");
+                    }
+                    break;
 
-        doble.recorrerAdelante();
+                case 4:
+                    // Deshacer movimiento con Pila LIFO
+                    System.out.println("\n--- 4. DESHACER ÚLTIMO MOVIMIENTO (Pila LIFO) ---");
+                    pilaMovimientos.mostrarPila();
+                    System.out.print("¿Desea deshacer la última operación? (s/n): ");
+                    String resp = scanner.nextLine().trim().toLowerCase();
+                    if (resp.equals("s")) {
+                        Movimiento mov = pilaMovimientos.desapilarMovimiento();
+                        if (mov != null) {
+                            Producto prodMod = inventario.buscarSecuencial(mov.getIdProducto());
+                            if (prodMod != null) {
+                                // Revertir efecto
+                                if (mov.getTipo().equalsIgnoreCase("VENTA") || mov.getTipo().equalsIgnoreCase("SALIDA")) {
+                                    prodMod.setStock(prodMod.getStock() + mov.getCantidad());
+                                } else if (mov.getTipo().equalsIgnoreCase("ENTRADA")) {
+                                    prodMod.setStock(Math.max(0, prodMod.getStock() - mov.getCantidad()));
+                                }
+                                System.out.println(">> Stock revertido exitosamente para: " + prodMod.getNombre());
+                            }
+                        }
+                    }
+                    break;
 
-        System.out.println("\nRecorrido hacia atrás:");
+                case 5:
+                    // Cola de prioridad de pedidos
+                    System.out.println("\n--- 5. PEDIDOS DE REPOSICIÓN (Cola de Prioridad) ---");
+                    pedidosReposicion.mostrarPedidos();
+                    System.out.println("1. Despachar pedido más urgente");
+                    System.out.println("2. Agregar nuevo pedido de reposición");
+                    System.out.println("3. Volver");
+                    System.out.print("Seleccione: ");
+                    String opPed = scanner.nextLine().trim();
 
-        doble.recorrerAtras();
+                    if (opPed.equals("1")) {
+                        pedidosReposicion.atenderPedido();
+                    } else if (opPed.equals("2")) {
+                        System.out.print("ID del producto: ");
+                        int idProd = Integer.parseInt(scanner.nextLine().trim());
+                        System.out.print("Nombre del producto: ");
+                        String nomProd = scanner.nextLine().trim();
+                        System.out.print("Cantidad a solicitar: ");
+                        int cantP = Integer.parseInt(scanner.nextLine().trim());
+                        System.out.print("Prioridad (1 = Urgente, 2 = Media, 3 = Normal): ");
+                        int prio = Integer.parseInt(scanner.nextLine().trim());
 
-        System.out.println(
-                "\nEliminar ID 4 y ID 3");
+                        pedidosReposicion.insertarPedido(idProd, nomProd, cantP, prio);
+                    }
+                    break;
 
-        doble.eliminarProducto(4);
+                case 6:
+                    // Reportes por sucursales (Módulo 3)
+                    System.out.println("\n--- 6. REPORTES POR SUCURSALES Y GENERAL ---");
+                    System.out.println("a. Matriz 2D: Inventario por Bodegas");
+                    System.out.println("b. Matriz 3D: Inventario General (Sucursal x Categoría x Producto)");
+                    System.out.print("Elija reporte (a/b): ");
+                    String r = scanner.nextLine().trim().toLowerCase();
 
-        doble.eliminarProducto(3);
+                    if (r.equals("a")) {
+                        invSucursales.recorrerMatriz(6);
+                        System.out.println("Existencias de Producto 1 en Bodega 0: "
+                                + invSucursales.consultarExistencias(1, 0) + " unidades.");
+                    } else if (r.equals("b")) {
+                        invGeneral.recorrerEstructura();
+                    }
+                    break;
 
-        System.out.println(
-                "\nLista doble actual:");
+                case 7:
+                    // Carrusel de promociones (Módulo 5)
+                    System.out.println("\n--- 7. CARRUSEL DE PROMOCIONES (Lista Circular Doble) ---");
+                    System.out.println("Recorrido en sentido horario (Hacia adelante):");
+                    carruselPromociones.recorrerAdelante();
+                    System.out.println("\nRecorrido en sentido antihorario (Hacia atrás):");
+                    carruselPromociones.recorrerAtras();
+                    break;
 
-        doble.recorrerAdelante();
+                case 8:
+                    // Visualización de inventarios (Módulo 1 y 4)
+                    System.out.println("\n--- 8. VISUALIZACIÓN DE ESTRUCTURAS ---");
+                    System.out.println("\n>> ARREGLO UNIDIMENSIONAL (InventarioLineal):");
+                    inventario.mostrarProductos();
 
-        // ============ Validacion Lista circular ===============
-        /*
-        System.out.println("\n========= Lista Circular ==========");
+                    System.out.println("\n>> LISTA SIMPLEMENTE ENLAZADA (ListaProductos):");
+                    listaSimple.recorrerLista();
 
-            ListaProductoCircular circular = new ListaProductoCircular();
+                    System.out.println("\n>> LISTA DOBLEMENTE ENLAZADA (ListaProductoDoble):");
+                    listaDoble.recorrerAdelante();
+                    break;
 
-            circular.insertarNodo(p3);
-            circular.insertarNodo(p2);
-            circular.insertarNodo(p1);
-            circular.insertarNodo(p4);
+                case 9:
+                    // Ordenamiento (Módulo 2)
+                    System.out.println("\n--- 9. ALGORITMOS DE ORDENAMIENTO (Módulo 2) ---");
+                    System.out.println("1. Ordenar por Nombre (Burbuja)");
+                    System.out.println("2. Ordenar por ID (Inserción)");
+                    System.out.println("3. Ordenar por Nombre (Selección)");
+                    System.out.print("Seleccione: ");
+                    String ord = scanner.nextLine().trim();
 
-            circular.recorrerCircular();
+                    if (ord.equals("1")) {
+                        inventario.ordenarBurbujaPorNombre();
+                        System.out.println(">> Ordenado con Burbuja por Nombre:");
+                        inventario.mostrarProductos();
+                    } else if (ord.equals("2")) {
+                        inventario.ordenarPorInsercion();
+                        System.out.println(">> Ordenado con Inserción por ID:");
+                        inventario.mostrarProductos();
+                    } else if (ord.equals("3")) {
+                        inventario.ordenarSeleccionPorNombre();
+                        System.out.println(">> Ordenado con Selección por Nombre:");
+                        inventario.mostrarProductos();
+                    }
+                    break;
 
-            System.out.println("\nAntes de Ordenar");
-            circular.recorrerCircular();
+                case 0:
+                    System.out.println("\n==========================================================");
+                    System.out.println(" Gracias por usar SmartStock. ¡Sistema finalizado!        ");
+                    System.out.println("==========================================================");
+                    break;
 
-            //para ordenar lista
-            circular.ordenarPorLista();
-            System.out.println("\nDespues de Ordenar");
-            circular.recorrerCircular();
-         */
-        System.out.println(
-                "\n===== LISTA CIRCULAR DOBLE =====");
+                default:
+                    System.out.println(">> Opción inválida. Intente de nuevo.");
+            }
 
-        ListaProductosCircularDoble circularDoble
-                = new ListaProductosCircularDoble();
+        } while (opcion != 0);
 
-        circularDoble.insertarNodo(p4);
-        circularDoble.insertarNodo(p1);
-        circularDoble.insertarNodo(p3);
-        circularDoble.insertarNodo(p2);
-        
-        System.out.println("\nRecorrido adelante");
-        
-        
-        circularDoble.recorrerAdelante();
-        
-        System.out.println();
-        System.out.println("\nRecorrer Atras");
-        
-        circularDoble.recorrerAtras();
-        
-        System.out.println("\nANTES DE ORDENAR");
-
-    circularDoble.recorrerAdelante();
-    
-    //para ordenar 
-    circularDoble.ordenarLista();
-    System.out.println("\nDESPUÉS DE ORDENAR");
-
-    circularDoble.recorrerAdelante();
-
-    // =====================================================
-    // MODULO 6: OPERACIONES DEL SUPERMERCADO
-    // =====================================================
-
-    // 1. PILA DE MOVIMIENTOS (LIFO)
-    System.out.println("\n===== MODULO 6: PILA DE MOVIMIENTOS (LIFO) =====");
-    PilaMovimientos pila = new PilaMovimientos();
-    pila.apilarMovimiento(p1.getId(), "ENTRADA", 50);
-    pila.apilarMovimiento(p2.getId(), "VENTA", 10);
-    pila.apilarMovimiento(p3.getId(), "SALIDA", 5);
-
-    pila.mostrarPila();
-
-    System.out.println("\nDeshacer último movimiento:");
-    pila.desapilarMovimiento();
-    pila.mostrarPila();
-
-    // 2. COLA DE CLIENTES EN CAJA (FIFO)
-    System.out.println("\n===== MODULO 6: COLA DE CLIENTES (FIFO) =====");
-    ColaClientes cola = new ColaClientes();
-    cola.encolarCliente("Carlos Gomez");
-    cola.encolarCliente("Maria Rodriguez");
-    cola.encolarCliente("Juan Martinez");
-
-    cola.mostrarCola();
-
-    System.out.println("\nAtendiendo en caja:");
-    cola.desencolarCliente();
-    cola.mostrarCola();
-
-    // 3. COLA DE PRIORIDAD DE PEDIDOS
-    System.out.println("\n===== MODULO 6: COLA DE PRIORIDAD DE PEDIDOS =====");
-    ColaPrioridadPedidos pedidos = new ColaPrioridadPedidos();
-    pedidos.insertarPedido(p1.getId(), p1.getNombre(), 100, 3); // Rutinaria
-    pedidos.insertarPedido(p2.getId(), p2.getNombre(), 30, 1);  // Urgente
-    pedidos.insertarPedido(p3.getId(), p3.getNombre(), 50, 2);  // Media
-
-    pedidos.mostrarPedidos();
-
-    System.out.println("\nDespachando pedido de mayor prioridad:");
-    pedidos.atenderPedido();
-    pedidos.mostrarPedidos();
-
-    // 4. CADENA DE PRODUCTOS
-    System.out.println("\n===== MODULO 6: CADENA DE PRODUCTOS =====");
-    CadenaProductos cadenas = new CadenaProductos();
-
-    System.out.println("Validar código 'P-001': " + cadenas.validarCodigo("P-001"));
-    System.out.println("Validar código '': " + cadenas.validarCodigo(""));
-
-    System.out.println("\nDescripción formateada:");
-    System.out.println(cadenas.concatenarDescripcion(p1));
-    System.out.println(cadenas.concatenarDescripcion(p2));
-
-    Producto[] catalogo = { p1, p2, p3, p4 };
-    cadenas.buscarTexto("Diana", catalogo, catalogo.length);
+        scanner.close();
     }
-
 }
