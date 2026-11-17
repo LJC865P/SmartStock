@@ -6,7 +6,8 @@ import java.util.Scanner;
  * SmartStock — Sistema de Gestión de Inventario para Tiendas y Supermercados.
  *
  * Proyecto Integrador de Estructuras de Datos.
- * Integrantes: Jose Perez · Nicolas Correa · Andres Lugo · Juan Sebastian Diaz Sanchez
+ * Integrantes: Jose Perez · Nicolas Correa · Andres Lugo · Juan Sebastian Diaz
+ * Sanchez
  * Docente: Nathaly Diaz
  *
  * Clase principal que integra los 6 módulos mediante un menú interactivo.
@@ -50,6 +51,132 @@ public class SmartStock {
         Producto p4 = new Producto("Aceite de Girasol", 12000, 20);
         Producto p5 = new Producto("Azucar Rio Paila", 3000, 80);
         Producto p6 = new Producto("Sal Refisal", 1500, 60);
+
+        // Para agregar el restante de lor productos de forma automatica y con los
+        // nombres
+        String[] nombres = {
+                "Arroz Diana",
+                "Arroz Roa",
+                "Arroz Flor Huila",
+                "Azucar Manuelita",
+                "Azucar Riopaila",
+                "Sal Refisal",
+                "Cafe Sello Rojo",
+                "Cafe Aguila Roja",
+                "Cafe Oma",
+                "Chocolate Corona",
+
+                "Leche Alpina",
+                "Leche Alqueria",
+                "Leche Colanta",
+                "Yogurt Alpina",
+                "Yogurt Colanta",
+                "Queso Campesino",
+                "Mantequilla Colanta",
+                "Crema de Leche Alpina",
+                "Kumis Alpina",
+                "Avena Alpina",
+
+                "Pan Bimbo",
+                "Pan Integral Bimbo",
+                "Galletas Festival",
+                "Galletas Ducales",
+                "Galletas Saltin Noel",
+                "Chocolatina Jet",
+                "Gomitas Trululu",
+                "Papas Margarita",
+                "Chitos",
+                "Manimoto",
+
+                "Atun Van Camps",
+                "Atun Isabel",
+                "Sardinas Olimpica",
+                "Frijol Diana",
+                "Lenteja Diana",
+                "Garbanzo Diana",
+                "Pasta Doria",
+                "Pasta La Muñeca",
+                "Sopa Maggi",
+                "Caldo Rico",
+
+                "Aceite Premier",
+                "Aceite Girasol",
+                "Vinagre Blanco",
+                "Salsa de Tomate Fruco",
+                "Mayonesa Fruco",
+                "Mostaza Fruco",
+                "Salsa BBQ",
+                "Salsa Inglesa",
+                "Salsa Soy",
+                "Pimienta Molida",
+
+                "Jabon Rey",
+                "Jabon Fab",
+                "Detergente Ariel",
+                "Detergente Fab",
+                "Suavizante Suavitel",
+                "Lavaloza Axion",
+                "Blanqueador Clorox",
+                "Esponja Bon Bril",
+                "Papel Higienico Familia",
+                "Servilletas Familia",
+
+                "Pañales Winny",
+                "Pañitos Humedos Winny",
+                "Shampoo Sedal",
+                "Shampoo Pantene",
+                "Acondicionador Pantene",
+                "Jabon Dove",
+                "Crema Dental Colgate",
+                "Cepillo Dental Colgate",
+                "Enjuague Bucal Listerine",
+                "Desodorante Rexona",
+
+                "Gaseosa Coca Cola",
+                "Gaseosa Pepsi",
+                "Gaseosa Colombiana",
+                "Gaseosa Manzana Postobon",
+                "Gaseosa Uva Postobon",
+                "Agua Cristal",
+                "Agua Manantial",
+                "Jugo Hit Mango",
+                "Jugo Hit Mora",
+                "Jugo Del Valle",
+
+                "Cerveza Aguila",
+                "Cerveza Poker",
+                "Cerveza Club Colombia",
+                "Vino Gato Negro",
+                "Whisky Old Parr",
+                "Energizante Vive100",
+                "Energizante Red Bull",
+                "Cafe Latte",
+                "Te Hatsu",
+                "Milo",
+
+                "Helado Crem Helado",
+                "Salchicha Zenú",
+                "Jamon Zenú",
+                "Mortadela Rica",
+                "Huevos AA",
+                "Pollo Entero",
+                "Carne Molida",
+                "Tomate Chonto",
+                "Papa Pastusa",
+                "Cebolla Larga"
+        };
+        for (int i = 0; i < nombres.length; i++) {
+
+            Producto producto = new Producto(
+                    nombres[i],
+                    2000 + (i * 150),
+                    10 + (i % 50));
+
+            inventario.agregarProducto(producto);
+
+            listaSimple.insertarFinal(producto);
+            listaDoble.insertarFinal(producto);
+        }
 
         // Registro en Inventario Lineal (Módulo 1)
         inventario.agregarProducto(p1);
@@ -190,7 +317,8 @@ public class SmartStock {
                     listaDoble.insertarFinal(nuevo);
                     pilaMovimientos.apilarMovimiento(nuevo.getId(), "ENTRADA", cant);
 
-                    System.out.println(">> Producto registrado en inventario lineal, listas enlazadas y apilado en historial.");
+                    System.out.println(
+                            ">> Producto registrado en inventario lineal, listas enlazadas y apilado en historial.");
                     break;
 
                 case 3:
@@ -234,7 +362,8 @@ public class SmartStock {
                             Producto prodMod = inventario.buscarSecuencial(mov.getIdProducto());
                             if (prodMod != null) {
                                 // Revertir efecto
-                                if (mov.getTipo().equalsIgnoreCase("VENTA") || mov.getTipo().equalsIgnoreCase("SALIDA")) {
+                                if (mov.getTipo().equalsIgnoreCase("VENTA")
+                                        || mov.getTipo().equalsIgnoreCase("SALIDA")) {
                                     prodMod.setStock(prodMod.getStock() + mov.getCantidad());
                                 } else if (mov.getTipo().equalsIgnoreCase("ENTRADA")) {
                                     prodMod.setStock(Math.max(0, prodMod.getStock() - mov.getCantidad()));
