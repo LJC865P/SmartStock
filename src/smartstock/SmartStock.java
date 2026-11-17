@@ -297,7 +297,64 @@ public class SmartStock {
     circularDoble.ordenarLista();
     System.out.println("\nDESPUÉS DE ORDENAR");
 
-circularDoble.recorrerAdelante();
+    circularDoble.recorrerAdelante();
+
+    // =====================================================
+    // MODULO 6: OPERACIONES DEL SUPERMERCADO
+    // =====================================================
+
+    // 1. PILA DE MOVIMIENTOS (LIFO)
+    System.out.println("\n===== MODULO 6: PILA DE MOVIMIENTOS (LIFO) =====");
+    PilaMovimientos pila = new PilaMovimientos();
+    pila.apilarMovimiento(p1.getId(), "ENTRADA", 50);
+    pila.apilarMovimiento(p2.getId(), "VENTA", 10);
+    pila.apilarMovimiento(p3.getId(), "SALIDA", 5);
+
+    pila.mostrarPila();
+
+    System.out.println("\nDeshacer último movimiento:");
+    pila.desapilarMovimiento();
+    pila.mostrarPila();
+
+    // 2. COLA DE CLIENTES EN CAJA (FIFO)
+    System.out.println("\n===== MODULO 6: COLA DE CLIENTES (FIFO) =====");
+    ColaClientes cola = new ColaClientes();
+    cola.encolarCliente("Carlos Gomez");
+    cola.encolarCliente("Maria Rodriguez");
+    cola.encolarCliente("Juan Martinez");
+
+    cola.mostrarCola();
+
+    System.out.println("\nAtendiendo en caja:");
+    cola.desencolarCliente();
+    cola.mostrarCola();
+
+    // 3. COLA DE PRIORIDAD DE PEDIDOS
+    System.out.println("\n===== MODULO 6: COLA DE PRIORIDAD DE PEDIDOS =====");
+    ColaPrioridadPedidos pedidos = new ColaPrioridadPedidos();
+    pedidos.insertarPedido(p1.getId(), p1.getNombre(), 100, 3); // Rutinaria
+    pedidos.insertarPedido(p2.getId(), p2.getNombre(), 30, 1);  // Urgente
+    pedidos.insertarPedido(p3.getId(), p3.getNombre(), 50, 2);  // Media
+
+    pedidos.mostrarPedidos();
+
+    System.out.println("\nDespachando pedido de mayor prioridad:");
+    pedidos.atenderPedido();
+    pedidos.mostrarPedidos();
+
+    // 4. CADENA DE PRODUCTOS
+    System.out.println("\n===== MODULO 6: CADENA DE PRODUCTOS =====");
+    CadenaProductos cadenas = new CadenaProductos();
+
+    System.out.println("Validar código 'P-001': " + cadenas.validarCodigo("P-001"));
+    System.out.println("Validar código '': " + cadenas.validarCodigo(""));
+
+    System.out.println("\nDescripción formateada:");
+    System.out.println(cadenas.concatenarDescripcion(p1));
+    System.out.println(cadenas.concatenarDescripcion(p2));
+
+    Producto[] catalogo = { p1, p2, p3, p4 };
+    cadenas.buscarTexto("Diana", catalogo, catalogo.length);
     }
 
 }
