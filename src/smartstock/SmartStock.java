@@ -70,6 +70,10 @@ public class SmartStock {
         listaDoble.insertarFinal(p3);
 
         // Registro en Carrusel Circular de Promociones (Módulo 5)
+        listaCircular.insertarNodo(p1);
+        listaCircular.insertarNodo(p2);
+        listaCircular.insertarNodo(p3);
+
         carruselPromociones.insertarNodo(p1);
         carruselPromociones.insertarNodo(p3);
         carruselPromociones.insertarNodo(p4);
@@ -164,8 +168,7 @@ public class SmartStock {
                     } else if (sub.equals("c")) {
                         System.out.print("Ingrese palabra o fragmento a buscar: ");
                         String texto = scanner.nextLine().trim();
-                        Producto[] prods = { p1, p2, p3, p4, p5, p6 };
-                        cadenaUtil.buscarTexto(texto, prods, prods.length);
+                        cadenaUtil.buscarTexto(texto, inventario.getProductos(), inventario.cantidadProductos());
                     } else {
                         System.out.println(">> Opción no válida.");
                     }
@@ -184,9 +187,10 @@ public class SmartStock {
                     Producto nuevo = new Producto(nom, pre, cant);
                     inventario.agregarProducto(nuevo);
                     listaSimple.insertarFinal(nuevo);
+                    listaDoble.insertarFinal(nuevo);
                     pilaMovimientos.apilarMovimiento(nuevo.getId(), "ENTRADA", cant);
 
-                    System.out.println(">> Producto registrado en inventario lineal, lista simple y apilado en historial.");
+                    System.out.println(">> Producto registrado en inventario lineal, listas enlazadas y apilado en historial.");
                     break;
 
                 case 3:
@@ -286,10 +290,13 @@ public class SmartStock {
 
                 case 7:
                     // Carrusel de promociones (Módulo 5)
-                    System.out.println("\n--- 7. CARRUSEL DE PROMOCIONES (Lista Circular Doble) ---");
-                    System.out.println("Recorrido en sentido horario (Hacia adelante):");
+                    System.out.println("\n--- 7. CARRUSEL DE PROMOCIONES (Módulo 5) ---");
+                    System.out.println("\n>> LISTA CIRCULAR SIMPLE (Recorrido Cíclico):");
+                    listaCircular.recorrerCircular();
+
+                    System.out.println("\n>> LISTA CIRCULAR DOBLE (Hacia adelante):");
                     carruselPromociones.recorrerAdelante();
-                    System.out.println("\nRecorrido en sentido antihorario (Hacia atrás):");
+                    System.out.println("\n>> LISTA CIRCULAR DOBLE (Hacia atrás):");
                     carruselPromociones.recorrerAtras();
                     break;
 

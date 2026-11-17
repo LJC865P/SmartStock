@@ -9,6 +9,9 @@ public class InventarioSucursales {
     // Fila = producto, columna = bodega. Guarda la cantidad en stock.
     private int[][] stock = new int[MAX_PRODUCTOS][MAX_BODEGAS];
 
+    // Nombres identificativos de las sucursales/bodegas
+    private String[] nombresSucursales = {"Sucursal Norte", "Sucursal Centro", "Sucursal Sur"};
+
     // Cuántos productos están registrados en la tabla
     private int cantidadProductos = 0;
 
@@ -74,17 +77,25 @@ public class InventarioSucursales {
             return;
         }
 
-        System.out.println("\n--- Inventario por Sucursales ---");
-        System.out.println("+----------+----------+----------+----------+");
-        System.out.println("| Producto | Bodega 0 | Bodega 1 | Bodega 2 |");
-        System.out.println("+----------+----------+----------+----------+");
+        System.out.println("\n--- Inventario por Sucursales (Matriz 2D) ---");
+        System.out.println("+------------+----------------+----------------+----------------+");
+        System.out.printf("| %-10s | %-14s | %-14s | %-14s |%n", 
+                "Producto", nombresSucursales[0], nombresSucursales[1], nombresSucursales[2]);
+        System.out.println("+------------+----------------+----------------+----------------+");
 
         for (int i = 0; i < totalProductos; i++) {
-            System.out.printf("| %-8d | %-8d | %-8d | %-8d |%n",
+            System.out.printf("| Prod ID %-2d | %-14d | %-14d | %-14d |%n",
                     (i + 1), stock[i][0], stock[i][1], stock[i][2]);
         }
 
-        System.out.println("+----------+----------+----------+----------+");
+        System.out.println("+------------+----------------+----------------+----------------+");
+    }
+
+    public String getNombreSucursal(int idBodega) {
+        if (idBodega >= 0 && idBodega < MAX_BODEGAS) {
+            return nombresSucursales[idBodega];
+        }
+        return "Bodega " + idBodega;
     }
 }
     

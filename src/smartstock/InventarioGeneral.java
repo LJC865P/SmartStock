@@ -24,6 +24,21 @@ public class InventarioGeneral {
             new int[MAX_SUCURSALES]
                    [MAX_CATEGORIAS];
 
+    // Nombres descriptivos de las sucursales y categorías
+    private String[] nombresSucursales = {
+        "Sucursal Bogotá (Norte)",
+        "Sucursal Medellín (Centro)",
+        "Sucursal Cali (Sur)"
+    };
+
+    private String[] nombresCategorias = {
+        "Granos y Cereales",
+        "Lácteos y Bebidas",
+        "Aceites y Grasas",
+        "Endulzantes",
+        "Abarrotes y Condimentos"
+    };
+
     /**
      * Registrar un producto en una sucursal y categoría.
      */
@@ -100,8 +115,8 @@ public class InventarioGeneral {
                         System.out.println(
                                 "Producto encontrado: "
                                         + nombre
-                                        + " | Sucursal: " + s
-                                        + " | Categoría: " + c);
+                                        + " | " + nombresSucursales[s]
+                                        + " | " + nombresCategorias[c]);
 
                         return;
 
@@ -158,19 +173,19 @@ public class InventarioGeneral {
     public void recorrerEstructura() {
 
         System.out.println(
-                "\n========== INVENTARIO GENERAL (3D) ==========");
+                "\n========== INVENTARIO GENERAL (Arreglo 3D) ==========");
 
         for (int s = 0; s < MAX_SUCURSALES; s++) {
 
             System.out.println(
-                    "\nSucursal " + s + ":");
+                    "\n[" + nombresSucursales[s] + "]");
 
             for (int c = 0; c < MAX_CATEGORIAS; c++) {
 
                 if (contadores[s][c] > 0) {
 
                     System.out.println(
-                            "  Categoría " + c + ":");
+                            "  ├── Categoría: " + nombresCategorias[c]);
 
                     for (int p = 0;
                          p < contadores[s][c];
@@ -180,14 +195,11 @@ public class InventarioGeneral {
                                 inventario[s][c][p];
 
                         System.out.println(
-                                "    ID: "
-                                        + producto.getId()
-                                        + " | Nombre: "
+                                "  │     • "
                                         + producto.getNombre()
-                                        + " | Precio: $"
-                                        + producto.getPrecio()
-                                        + " | Stock: "
-                                        + producto.getStock());
+                                        + " (ID: " + producto.getId()
+                                        + " | Precio: $" + producto.getPrecio()
+                                        + " | Stock: " + producto.getStock() + ")");
 
                     }
 

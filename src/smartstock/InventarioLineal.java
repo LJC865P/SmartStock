@@ -79,6 +79,10 @@ public class InventarioLineal {
         return cantidadProductos;
     }
 
+    public Producto[] getProductos() { // Retorna el arreglo de productos
+        return productos;
+    }
+
     // ====================== Actualizar Producto =====================
     public void actualizarProducto(int id, String nuevoNombre, double nuevoPrecio, int nuevoStock) {
 
